@@ -16,7 +16,7 @@ jobs:
           node-version: "18.x"
       - run: npm install
       - run: npm run build
-      - run: echo '//vas-01.oa.r.appspot.com/:_authToken=${VERDACCIO_AUTH_TOKEN}' >> `npm config get userconfig`
+      - run: echo '//vas-01.oa.r.appspot.com/:_authToken="${VERDACCIO_AUTH_TOKEN}"' >> `npm config get userconfig`
       - run: npm publish --registry https://vas-01.oa.r.appspot.com
         env:
           NODE_AUTH_TOKEN: ${{ secrets.VERDACCIO_AUTH_TOKEN }}
