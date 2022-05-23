@@ -25,5 +25,8 @@
   },
   "publishConfig": {
     "registry": "https://vas-01.oa.r.appspot.com"
-  }
+  },
+  "files": [
+    "./dist/*"
+  ]
 }
