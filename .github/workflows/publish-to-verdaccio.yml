@@ -21,11 +21,11 @@ jobs:
   publish:
     name: Publish
     # Setup .npmrc file to publish to npm
-    uses: actions/setup-node@v3
-    with: 
-      node-version: '18.x'
-      registry-url: 'https://vas-01.oa.r.appspot.com'
     steps:
+      - uses: actions/setup-node@v3
+        with: 
+          node-version: '18.x'
+          registry-url: 'https://vas-01.oa.r.appspot.com'
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.VERDACCIO_AUTH_TOKEN }}
