@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "strictNullChecks": false,
+    "declaration": true,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "lib": ["ESNEXT", "DOM"],
+    "target": "ES2021",
+    "typeRoots": ["./node_modules/@types"],
+    "moduleResolution": "node",
+    "strictPropertyInitialization": false,
+    "resolveJsonModule": true
+  }
+}
