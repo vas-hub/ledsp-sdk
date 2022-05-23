@@ -28,6 +28,6 @@
     "registry": "https://verdaccio.vas.it"
   },
   "files": [
-    "././dist/*"
+    "./dist/*"
   ]
 }
