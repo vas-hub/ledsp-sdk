@@ -1,25 +1,25 @@
 {
   "name": "ledsp-sdk",
   "version": "0.1.8",
-  "main": "dist/index.cjs",
+  "main": "./dist/index.cjs",
   "author": "VAS S.r.l.",
   "license": "MIT",
   "dependencies": {},
   "type": "module",
-  "source": "src/index.ts",
+  "source": "./src/index.ts",
   "exports": {
-    "require": "dist/index.cjs",
-    "default": "dist/index.modern.js"
+    "require": "./dist/index.cjs",
+    "default": "./dist/index.modern.js"
   },
-  "module": "dist/index.module.js",
-  "unpkg": "dist/index.umd.js",
+  "module": "./dist/index.module.js",
+  "unpkg": "./dist/index.umd.js",
   "scripts": {
     "build": "microbundle",
     "dev": "microbundle watch",
     "prepack": "microbundle",
-    "prepare": "microbundle"
+    "prepare": "microbundle ./src/index.ts"
   },
-  "types": "dist/index.d.ts",
+  "types": "./dist/index.d.ts",
   "devDependencies": {
     "microbundle": "^0.15.0",
     "np": "^7.6.1"
@@ -28,6 +28,6 @@
     "registry": "https://verdaccio.vas.it"
   },
   "files": [
-    "./dist/*"
+    "././dist/*"
   ]
 }
