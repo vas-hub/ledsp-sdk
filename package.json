@@ -15,11 +15,15 @@
   "unpkg": "./dist/index.umd.js",
   "scripts": {
     "build": "microbundle",
-    "postinstall": "microbundle",
-    "dev": "microbundle watch"
+    "dev": "microbundle watch",
+    "prepack": "microbundle"
   },
   "types": "dist/index.d.ts",
   "devDependencies": {
-    "microbundle": "^0.15.0"
+    "microbundle": "^0.15.0",
+    "np": "^7.6.1"
+  },
+  "publishConfig": {
+    "registry": "https://vas-01.oa.r.appspot.com"
   }
 }
