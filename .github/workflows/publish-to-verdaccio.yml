@@ -6,26 +6,27 @@ name: Publish to Verdaccio
       - main
 
 jobs:
-  runs-on: ubuntu-22.04
-
   install:
     name: Install
+    runs-on: ubuntu-22.04
     steps:
       - run: npm install
 
   build:
     name: Build
+    runs-on: ubuntu-22.04
     steps:
       - run: npm run build
 
   publish:
     name: Publish
+    runs-on: ubuntu-22.04
     # Setup .npmrc file to publish to npm
     steps:
       - uses: actions/setup-node@v3
-        with: 
-          node-version: '18.x'
-          registry-url: 'https://vas-01.oa.r.appspot.com'
+        with:
+          node-version: "18.x"
+          registry-url: "https://vas-01.oa.r.appspot.com"
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.VERDACCIO_AUTH_TOKEN }}
