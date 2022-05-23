@@ -16,7 +16,8 @@
   "scripts": {
     "build": "microbundle",
     "dev": "microbundle watch",
-    "prepack": "microbundle"
+    "prepack": "microbundle",
+    "prepare": "microbundle"
   },
   "types": "dist/index.d.ts",
   "devDependencies": {
