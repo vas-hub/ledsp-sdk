@@ -28,6 +28,10 @@
     "registry": "https://verdaccio.vas.it"
   },
   "files": [
-    "./dist/*"
+    "./dist/*.cjs",
+    "./dist/*.modern.js",
+    "./dist/*.d.ts",
+    "./dist/*.module.js",
+    "./dist/*.umd.js",
   ]
 }
