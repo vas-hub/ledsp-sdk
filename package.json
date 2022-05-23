@@ -6,7 +6,7 @@
   "license": "MIT",
   "dependencies": {},
   "type": "module",
-  "source": "src/index.ts",
+  "source": "./src/index.ts",
   "exports": {
     "require": "./dist/index.cjs",
     "default": "./dist/index.modern.js"
