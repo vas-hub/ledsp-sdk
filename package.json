@@ -32,6 +32,6 @@
     "./dist/*.modern.js",
     "./dist/*.d.ts",
     "./dist/*.module.js",
-    "./dist/*.umd.js",
+    "./dist/*.umd.js"
   ]
 }
