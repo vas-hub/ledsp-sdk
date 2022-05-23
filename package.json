@@ -16,7 +16,7 @@
   "scripts": {
     "build": "microbundle",
     "dev": "microbundle watch",
-    "prepack": "microbundle",
+    "prepack": "microbundle ./src/index.ts",
     "prepare": "microbundle ./src/index.ts"
   },
   "types": "./dist/index.d.ts",
