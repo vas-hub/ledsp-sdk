@@ -15,8 +15,8 @@ jobs:
         with:
           node-version: "18.x"
           registry-url: "https://vas-01.oa.r.appspot.com"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.VERDACCIO_AUTH_TOKEN }}
       - run: npm install
       - run: npm build
       - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.VERDACCIO_AUTH_TOKEN }}
