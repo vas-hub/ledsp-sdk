@@ -33,7 +33,8 @@
     "typescript": "^4.7.4"
   },
   "publishConfig": {
-    "registry": "https://npmjs.com"
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "files": [
     "dist"
