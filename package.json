@@ -1,6 +1,6 @@
 {
   "name": "ledsp-sdk",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "main": "dist/index.cjs",
   "author": "VAS S.r.l.",
   "license": "MIT",
