@@ -9,7 +9,7 @@
     "experimentalDecorators": true,
     "suppressImplicitAnyIndexErrors": true,
     "lib": ["ESNEXT", "DOM"],
-    "target": "ES2021",
+    "target": "ES2017",
     "typeRoots": ["./node_modules/@types"],
     "moduleResolution": "node",
     "strictPropertyInitialization": false,
