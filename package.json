@@ -8,6 +8,9 @@
     "type": "git",
     "url": "https://github.com/vas-hub/ledsp-sdk.git"
   },
+  "bin": {
+    "test": "dist/cli.cjs"
+  },
   "engines": {
     "node": ">=16"
   },
