@@ -1,5 +1,5 @@
 export const LEDSP_API_ENDPOINT = {
-  production: "#",
+  production: "https://api.ledsp.vas.it",
   staging: "https://api.ledsp.va5.it",
   development: "http://localhost",
 };
