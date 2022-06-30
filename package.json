@@ -9,7 +9,7 @@
     "url": "https://github.com/vas-hub/ledsp-sdk.git"
   },
   "bin": {
-    "test": "dist/cli.cjs"
+    "testcli": "bin/cli"
   },
   "engines": {
     "node": ">=16"
@@ -26,8 +26,8 @@
   "scripts": {
     "build": "microbundle",
     "dev": "microbundle watch",
-    "prepack": "microbundle src/index.ts src/cli.ts",
-    "prepare": "microbundle src/index.ts src/cli.ts"
+    "prepack": "microbundle src/index.ts src/cli-lib/main.ts",
+    "prepare": "microbundle src/index.ts src/cli-lib/main.ts"
   },
   "types": "dist/index.d.ts",
   "devDependencies": {
