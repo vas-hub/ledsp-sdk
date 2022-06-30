@@ -1,3 +1,3 @@
-type LedspEnvironment = "production" | "staging" | "development" | "forzamilan";
+type LedspEnvironment = "production" | "staging" | "development" | "forzainter";
 
 export default LedspEnvironment;
