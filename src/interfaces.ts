@@ -1,14 +1,19 @@
 export interface GameInfo {
-  gameInfoId: string; // Aka interpretationId
-  userId: string;
-  gameId: string;
-  playerId: string;
-  team: string;
-  role: string;
-  settings: {
-    playURL: string;
-    configuration: unknown;
-  };
+  playOptions: unknown;
+  players: Player[];
+  returnPath: string;
+  teamId: string;
+  gameResultsRegistryEndpoint: string;
+}
+
+export interface Player {
+  id: string;
+  displayName: string;
+  color: string;
+}
+
+export interface GameConcept {
+  defaultPlayOptionsSet: unknown;
 }
 
 export interface PlayerStatus {
