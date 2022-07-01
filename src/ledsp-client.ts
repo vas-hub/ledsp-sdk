@@ -3,10 +3,9 @@ import LedspEnvironment from "./ledsp-environment.type";
 import HttpClient from "./http-client";
 import {
   GameConcept,
-  GameInfo,
+  Interpretation,
   GameProgressEvents,
   Observation,
-  PlayerStatus,
 } from "./interfaces";
 import { LedspEmulator } from "./ledsp-emulator";
 
@@ -22,16 +21,19 @@ export default class LedspClient {
     );
   }
 
-  async findGameConfiguration(gameConfigId: string): Promise<GameInfo> {
+  async findInterpretation(interpretationId: string): Promise<Interpretation> {
     // TODO implement a specific class and transform it to a Decorator
     if (this.gameConceptToEmulate)
-      return LedspEmulator.findGameConfiguration(this.gameConceptToEmulate);
+      return LedspEmulator.findInterpretation(
+        interpretationId,
+        this.gameConceptToEmulate
+      );
     return this.ledspHttpClient.get(
-      `game-launcher/interpretations/${gameConfigId}/configuration`
+      `game-launcher/interpretations/${interpretationId}`
     );
   }
 
-  async sendGameProgress(event: GameProgressEvents) {
+  async sendGameProgressEvent(event: GameProgressEvents) {
     // TODO implement a specific class and transform it to a Decorator
     if (this.gameConceptToEmulate) return;
     this.ledspHttpClient.post(`game-progress/${event.gameId}`, event);

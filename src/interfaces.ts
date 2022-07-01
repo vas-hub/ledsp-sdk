@@ -1,10 +1,17 @@
-export interface GameInfo {
-  playOptions: unknown;
-  players: Player[];
-  returnPath: string;
-  teamId: string;
-  gameResultsRegistryEndpoint: string;
-}
+export type Interpretation = {
+  readonly interpretationId: string;
+  readonly userId: string;
+  readonly gameId: string;
+  readonly playerId: string;
+  readonly team: string;
+  readonly role: string;
+  readonly settings: InterpretationPlaySettings;
+};
+
+export type InterpretationPlaySettings<T = unknown> = {
+  readonly playURL: string;
+  readonly configuration: T;
+};
 
 export interface Player {
   id: string;
@@ -14,16 +21,6 @@ export interface Player {
 
 export interface GameConcept {
   defaultPlayOptionsSet: unknown;
-}
-
-export interface PlayerStatus {
-  gameId: string;
-  playerId: string;
-  timestamp: Date;
-  phase: string;
-  round: number;
-  isOwnTurn: boolean;
-  stage: string;
 }
 
 export interface Observation {}
