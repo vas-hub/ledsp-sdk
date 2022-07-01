@@ -1,7 +1,13 @@
 import { LEDSP_API_BASEPATH, LEDSP_API_ENDPOINT } from "./env";
 import LedspEnvironment from "./ledsp-environment.type";
 import HttpClient from "./http-client";
-import { GameConcept, GameInfo, Observation, PlayerStatus } from "./interfaces";
+import {
+  GameConcept,
+  GameInfo,
+  GameProgressEvents,
+  Observation,
+  PlayerStatus,
+} from "./interfaces";
 import { LedspEmulator } from "./ledsp-emulator";
 
 export default class LedspClient {
@@ -25,10 +31,10 @@ export default class LedspClient {
     );
   }
 
-  async sendProgress(payload: PlayerStatus) {
+  async sendGameProgress(event: GameProgressEvents) {
     // TODO implement a specific class and transform it to a Decorator
     if (this.gameConceptToEmulate) return;
-    this.ledspHttpClient.post(`game-progress/${payload.gameId}`, payload);
+    this.ledspHttpClient.post(`game-progress/${event.gameId}`, event);
   }
 
   async saveResults(results: Observation[]) {}

@@ -27,3 +27,26 @@ export interface PlayerStatus {
 }
 
 export interface Observation {}
+
+export type GameProgressEvents = PhaseEntered | PhaseLeft;
+
+export type PhaseEntered = {
+  gameId: string;
+  type: PhaseEventTypes.Entered;
+  playerId: string;
+  phase: string;
+  timestamp: number;
+};
+
+export type PhaseLeft = {
+  gameId: string;
+  type: PhaseEventTypes.Left;
+  playerId: string;
+  phase: string;
+  timestamp: number;
+};
+
+export enum PhaseEventTypes {
+  Entered = "entered",
+  Left = "left",
+}
