@@ -1,31 +1,33 @@
 import { LEDSP_API_BASEPATH, LEDSP_API_ENDPOINT } from "./env";
 import LedspEnvironment from "./ledsp-environment.type";
 import HttpClient from "./http-client";
-import { GameInfo, Observation, PlayerStatus } from "./interfaces";
+import { GameConcept, GameInfo, Observation, PlayerStatus } from "./interfaces";
+import { LedspEmulator } from "./ledsp-emulator";
 
 export default class LedspClient {
   ledspHttpClient: HttpClient;
 
   constructor(
     public readonly environment: LedspEnvironment,
-    private readonly emulator: boolean = false
+    private readonly gameConceptToEmulate?: GameConcept
   ) {
     this.ledspHttpClient = new HttpClient(
       LEDSP_API_ENDPOINT[this.environment].concat("/", LEDSP_API_BASEPATH)
     );
   }
 
-  async findGameInfo(gameInfoId: string): Promise<GameInfo> {
+  async findGameConfiguration(gameConfigId: string): Promise<GameInfo> {
     // TODO implement a specific class and transform it to a Decorator
-    if (this.emulator) return undefined;
+    if (this.gameConceptToEmulate)
+      return LedspEmulator.findGameConfiguration(this.gameConceptToEmulate);
     return this.ledspHttpClient.get(
-      `game-launcher/interpretations/${gameInfoId}/configuration`
+      `game-launcher/interpretations/${gameConfigId}/configuration`
     );
   }
 
   async sendProgress(payload: PlayerStatus) {
     // TODO implement a specific class and transform it to a Decorator
-    if (this.emulator) return {};
+    if (this.gameConceptToEmulate) return;
     this.ledspHttpClient.post(`game-progress/${payload.gameId}`, payload);
   }
 
@@ -33,6 +35,7 @@ export default class LedspClient {
 
   // TODO Check: should this endpoint stay here?
   async debriefingInfo(debriefingId: string) {
+    if (this.gameConceptToEmulate) return;
     return this.ledspHttpClient.get(
       `game-results-storages/payloads?gamingSessionIds[]=${debriefingId}`
     );
