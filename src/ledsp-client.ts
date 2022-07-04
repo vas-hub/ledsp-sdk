@@ -41,7 +41,8 @@ export default class LedspClient {
 
   async saveResults(results: Observation[]) {}
 
-  // TODO Check: should this endpoint stay here?
+  // TODO: Check: should this endpoint stay here?
+  // TODO: Type this.
   async debriefingInfo(debriefingId: string) {
     if (this.gameConceptToEmulate) return;
     return this.ledspHttpClient.get(

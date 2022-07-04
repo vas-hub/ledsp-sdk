@@ -1,4 +1,4 @@
 import LedspClient from "./ledsp-client";
+import { Interpretation } from "./interfaces";
 
-export const DEBUG_VARIABLE: string = "OK";
-export { LedspClient };
+export { LedspClient, Interpretation };
