@@ -8,9 +8,9 @@ export type Interpretation = {
   readonly settings: InterpretationPlaySettings;
 };
 
-export type InterpretationPlaySettings<T = unknown> = {
+export type InterpretationPlaySettings = {
   readonly playURL: string;
-  readonly configuration: T;
+  readonly configuration: any;
 };
 
 export interface Player {
