@@ -25,11 +25,44 @@ export interface GameConcept {
 
 export interface Observation {}
 
-export type GameProgressEvents = PhaseEntered | PhaseLeft;
+export type GameProgressEvents =
+  | GameLaunched
+  | GameStarted
+  | PhaseEntered
+  | PhaseLeft
+  | GameEnded;
+
+export type EventType =
+  | "game-launched"
+  | "game-started"
+  | "phase-entered"
+  | "phase-left"
+  | "game-ended";
+
+export type GameLaunched = {
+  gameId: string;
+  playerId: string;
+  type: "game-launched";
+  timestamp: number;
+};
+
+export type GameStarted = {
+  gameId: string;
+  playerId: string;
+  type: "game-started";
+  timestamp: number;
+};
+
+export type GameEnded = {
+  gameId: string;
+  playerId: string;
+  type: "game-ended";
+  timestamp: number;
+};
 
 export type PhaseEntered = {
   gameId: string;
-  type: PhaseEventTypes.Entered;
+  type: "phase-entered";
   playerId: string;
   phase: string;
   timestamp: number;
@@ -37,13 +70,8 @@ export type PhaseEntered = {
 
 export type PhaseLeft = {
   gameId: string;
-  type: PhaseEventTypes.Left;
+  type: "phase-left";
   playerId: string;
   phase: string;
   timestamp: number;
 };
-
-export enum PhaseEventTypes {
-  Entered = "entered",
-  Left = "left",
-}
