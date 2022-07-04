@@ -1,5 +1,4 @@
 import { LEDSP_API_BASEPATH, LEDSP_API_ENDPOINT } from "./env";
-import LedspEnvironment from "./ledsp-environment.type";
 import HttpClient from "./http-client";
 import {
   GameConcept,
@@ -13,9 +12,11 @@ export default class LedspClient {
   ledspHttpClient: HttpClient;
 
   constructor(
-    public readonly environment: LedspEnvironment,
+    public readonly environment: string,
     private readonly gameConceptToEmulate?: GameConcept
   ) {
+    if (!LEDSP_API_ENDPOINT[environment])
+      throw new Error(`Unknown environment for ledsp-sdk: ${environment}`);
     this.ledspHttpClient = new HttpClient(
       LEDSP_API_ENDPOINT[this.environment].concat("/", LEDSP_API_BASEPATH)
     );
