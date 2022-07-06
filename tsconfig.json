@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "src",
     "strictNullChecks": false,
     "declaration": true,
     "noImplicitAny": false,
@@ -13,6 +14,8 @@
     "typeRoots": ["./node_modules/@types"],
     "moduleResolution": "node",
     "strictPropertyInitialization": false,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "rootDir": "src",
+    "outDir": "dist"
   }
 }
