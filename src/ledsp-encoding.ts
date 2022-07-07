@@ -16,4 +16,5 @@ type LedspPlayInfo = {
   interpretationId: string;
   team: string;
   session: string;
+  observer?: boolean;
 };
