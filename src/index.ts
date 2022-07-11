@@ -3,12 +3,19 @@ import { Interpretation } from "./interfaces";
 import { QSDecode, QSEncode } from "./ledsp-encoding";
 import {
   GameProgressEvent,
-  GameLaunched,
-  GameStarted,
-  GameEnded,
-  PhaseEntered,
-  StageEntered,
+  GAME_ENDED,
+  GAME_LAUNCHED,
+  GAME_STARTED,
+  PHASE_ENTERED,
+  STAGE_ENTERED,
 } from "./game-progress";
+
+import {
+  GAME_CONCEPT_CREATED,
+  GAME_CONCEPT_DELETED,
+  GAME_CONCEPT_UPDATED,
+  GameConceptEvent,
+} from "./game-concept";
 
 export {
   LedspClient,
@@ -16,9 +23,13 @@ export {
   QSDecode,
   QSEncode,
   GameProgressEvent,
-  GameLaunched,
-  GameStarted,
-  GameEnded,
-  PhaseEntered,
-  StageEntered,
+  GAME_ENDED,
+  GAME_LAUNCHED,
+  GAME_STARTED,
+  PHASE_ENTERED,
+  STAGE_ENTERED,
+  GameConceptEvent,
+  GAME_CONCEPT_CREATED,
+  GAME_CONCEPT_DELETED,
+  GAME_CONCEPT_UPDATED,
 };
