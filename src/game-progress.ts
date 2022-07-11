@@ -4,6 +4,14 @@ export const GAME_ENDED = "game-ended";
 export const PHASE_ENTERED = "phase-entered";
 export const STAGE_ENTERED = "stage-entered";
 
+export const GAME_PROGRESS_EVENT_TYPES = [
+  GAME_LAUNCHED,
+  GAME_STARTED,
+  GAME_ENDED,
+  PHASE_ENTERED,
+  STAGE_ENTERED,
+];
+
 export type GameProgressEvent =
   | IGameLaunched
   | IGameStarted
