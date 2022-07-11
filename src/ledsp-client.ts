@@ -1,4 +1,4 @@
-import { GameProgressEvent } from "./game-progress";
+import { GameProgressEvent, GAME_PROGRESS_EVENT_TYPES } from "./game-progress";
 import { LEDSP_API_BASEPATH, LEDSP_API_ENDPOINT } from "./env";
 import HttpClient from "./http-client";
 import { GameConcept, Interpretation, Observation } from "./interfaces";
@@ -33,6 +33,10 @@ export default class LedspClient {
   async sendGameProgressEvent(event: GameProgressEvent) {
     // TODO implement a specific class and transform it to a Decorator
     if (this.gameConceptToEmulate) return;
+    if (!GAME_PROGRESS_EVENT_TYPES.includes(event.eventType))
+      throw new Error(
+        `Game Progress Event: unknown event type: ${event.eventType}`
+      );
     this.ledspHttpClient.post(`games-progresses`, event);
   }
 
