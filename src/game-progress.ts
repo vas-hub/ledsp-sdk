@@ -20,7 +20,6 @@ export type GameProgressEvent =
   | IStageEntered;
 
 export interface IGameLaunched {
-  id: string;
   eventType: "game-launched";
   gameId: string;
   playerId: string;
@@ -29,7 +28,6 @@ export interface IGameLaunched {
 }
 
 export interface IGameStarted {
-  id: string;
   eventType: "game-started";
   gameId: string;
   playerId: string;
@@ -38,7 +36,6 @@ export interface IGameStarted {
 }
 
 export interface IGameEnded {
-  id: string;
   eventType: "game-ended";
   gameId: string;
   playerId: string;
@@ -48,7 +45,6 @@ export interface IGameEnded {
 }
 
 export interface IPhaseEntered {
-  id: string;
   eventType: "phase-entered";
   gameId: string;
   playerId: string;
@@ -58,7 +54,6 @@ export interface IPhaseEntered {
 }
 
 export interface IStageEntered {
-  id: string;
   eventType: "stage-entered";
   gameId: string;
   playerId: string;
