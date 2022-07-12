@@ -30,14 +30,23 @@ export default class LedspClient {
     );
   }
 
-  async sendGameProgressEvent(event: GameProgressEvent) {
+  async sendGameProgressEvent(event: Omit<GameProgressEvent, "id">) {
     // TODO implement a specific class and transform it to a Decorator
     if (this.gameConceptToEmulate) return;
     if (!GAME_PROGRESS_EVENT_TYPES.includes(event.eventType))
       throw new Error(
         `Game Progress Event: unknown event type: ${event.eventType}`
       );
-    this.ledspHttpClient.post(`games-progresses`, event);
+    this.ledspHttpClient.post(`games-progresses`, {
+      ...event,
+      id: `${event.gameId}.${
+        typeof window !== "undefined" &&
+        typeof window.crypto === "object" &&
+        typeof window.crypto.randomUUID === "function"
+          ? window.crypto.randomUUID()
+          : Math.ceil(Math.random() * Date.now()).toString(36)
+      }`,
+    });
   }
 
   async saveResults(results: Observation[]) {}
