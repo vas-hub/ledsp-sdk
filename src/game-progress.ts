@@ -1,27 +1,24 @@
 export const GAME_LAUNCHED = "game-launched";
 export const GAME_STARTED = "game-started";
 export const GAME_ENDED = "game-ended";
-export const PHASE_ENTERED = "phase-entered";
-export const STAGE_ENTERED = "stage-entered";
+export const GAME_FLOW_STEP_ENTERED = "game-flow-step-entered";
 
 export const GAME_PROGRESS_EVENT_TYPES = [
   GAME_LAUNCHED,
   GAME_STARTED,
   GAME_ENDED,
-  PHASE_ENTERED,
-  STAGE_ENTERED,
+  GAME_FLOW_STEP_ENTERED,
 ];
 
 export type GameProgressEvent =
   | IGameLaunched
   | IGameStarted
   | IGameEnded
-  | IPhaseEntered
-  | IStageEntered;
+  | IGameFlowStepEntered;
 
 export interface IGameLaunched {
   id: string;
-  eventType: "game-launched";
+  eventType: typeof GAME_LAUNCHED;
   gameId: string;
   playerId: string;
   teamId: string;
@@ -30,7 +27,7 @@ export interface IGameLaunched {
 
 export interface IGameStarted {
   id: string;
-  eventType: "game-started";
+  eventType: typeof GAME_STARTED;
   gameId: string;
   playerId: string;
   teamId: string;
@@ -39,7 +36,7 @@ export interface IGameStarted {
 
 export interface IGameEnded {
   id: string;
-  eventType: "game-ended";
+  eventType: typeof GAME_ENDED;
   gameId: string;
   playerId: string;
   teamId: string;
@@ -47,22 +44,13 @@ export interface IGameEnded {
   timestamp: number;
 }
 
-export interface IPhaseEntered {
+export interface IGameFlowStepEntered {
   id: string;
-  eventType: "phase-entered";
+  eventType: typeof GAME_FLOW_STEP_ENTERED;
   gameId: string;
   playerId: string;
   teamId: string;
-  phase: string;
-  timestamp: number;
-}
-
-export interface IStageEntered {
-  id: string;
-  eventType: "stage-entered";
-  gameId: string;
-  playerId: string;
-  teamId: string;
+  step: string;
   stage: string;
   timestamp: number;
 }
