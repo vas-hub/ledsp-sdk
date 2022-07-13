@@ -24,3 +24,5 @@ export interface GameConcept {
 }
 
 export interface Observation {}
+
+export type WithId<T> = T & { id: string };
