@@ -1,11 +1,9 @@
-export const GAME_PREPARED = "game-prepared";
 export const GAME_LAUNCHED = "game-launched";
 export const GAME_STARTED = "game-started";
 export const GAME_STAGE_ENTERED = "game-stage-entered";
 export const GAME_ENDED = "game-ended";
 
 export const GAME_PROGRESS_EVENT_TYPES = [
-  GAME_PREPARED,
   GAME_LAUNCHED,
   GAME_STARTED,
   GAME_STAGE_ENTERED,
@@ -13,14 +11,13 @@ export const GAME_PROGRESS_EVENT_TYPES = [
 ];
 
 export type GameProgressEvent =
-  | IGamePrepared
   | IGameLaunched
   | IGameStarted
   | IGameStageEntered
   | IGameEnded;
 
-export interface IGamePrepared {
-  eventType: typeof GAME_PREPARED;
+export interface IGameLaunched {
+  eventType: typeof GAME_LAUNCHED;
   gameId: string;
   gameConcept: GameConcept;
 }
@@ -41,12 +38,6 @@ export type Phase = {
     max: number;
   };
 };
-
-export interface IGameLaunched {
-  eventType: typeof GAME_LAUNCHED;
-  gameId: string;
-  teamId: string;
-}
 
 export interface IGameStarted {
   eventType: typeof GAME_STARTED;
