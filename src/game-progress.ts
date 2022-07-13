@@ -16,17 +16,16 @@ export type GameProgressEvent =
   | IGamePrepared
   | IGameLaunched
   | IGameStarted
-  | IGameEnded
-  | IGameFlowStepEntered;
+  | IGameFlowStepEntered
+  | IGameEnded;
 
 export interface IGamePrepared {
-  id: string;
   eventType: typeof GAME_PREPARED;
   gameId: string;
   timestamp: number;
 }
+
 export interface IGameLaunched {
-  id: string;
   eventType: typeof GAME_LAUNCHED;
   gameId: string;
   playerId: string;
@@ -35,7 +34,6 @@ export interface IGameLaunched {
 }
 
 export interface IGameStarted {
-  id: string;
   eventType: typeof GAME_STARTED;
   gameId: string;
   playerId: string;
@@ -44,7 +42,6 @@ export interface IGameStarted {
 }
 
 export interface IGameEnded {
-  id: string;
   eventType: typeof GAME_ENDED;
   gameId: string;
   playerId: string;
@@ -54,7 +51,6 @@ export interface IGameEnded {
 }
 
 export interface IGameFlowStepEntered {
-  id: string;
   eventType: typeof GAME_FLOW_STEP_ENTERED;
   gameId: string;
   playerId: string;
