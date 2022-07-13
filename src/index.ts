@@ -6,13 +6,13 @@ import {
   GAME_PREPARED,
   GAME_LAUNCHED,
   GAME_STARTED,
-  GAME_FLOW_STEP_ENTERED,
+  GAME_STAGE_ENTERED,
   GAME_ENDED,
   GAME_PROGRESS_EVENT_TYPES,
   IGamePrepared,
   IGameLaunched,
   IGameStarted,
-  IGameFlowStepEntered,
+  IGameStageEntered,
   IGameEnded,
 } from "./game-progress";
 
@@ -23,6 +23,8 @@ import {
   GameConceptEvent,
 } from "./game-concept";
 
+import { EventOfType } from "./events";
+
 export {
   LedspClient,
   Interpretation,
@@ -32,16 +34,17 @@ export {
   IGamePrepared,
   IGameLaunched,
   IGameStarted,
-  IGameFlowStepEntered,
+  IGameStageEntered,
   IGameEnded,
   GAME_PROGRESS_EVENT_TYPES,
   GAME_PREPARED,
   GAME_LAUNCHED,
   GAME_STARTED,
-  GAME_FLOW_STEP_ENTERED,
+  GAME_STAGE_ENTERED,
   GAME_ENDED,
   GameConceptEvent,
   GAME_CONCEPT_CREATED,
   GAME_CONCEPT_DELETED,
   GAME_CONCEPT_UPDATED,
+  EventOfType,
 };

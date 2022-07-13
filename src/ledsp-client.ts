@@ -55,6 +55,7 @@ export default class LedspClient {
           ? window.crypto.randomUUID()
           : Math.ceil(Math.random() * Date.now()).toString(36)
       }`,
+      timestamp: Date.now(),
     });
   }
 
