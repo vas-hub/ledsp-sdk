@@ -22,14 +22,12 @@ export type GameProgressEvent =
 export interface IGamePrepared {
   eventType: typeof GAME_PREPARED;
   gameId: string;
-  timestamp: number;
 }
 
 export interface IGameLaunched {
   eventType: typeof GAME_LAUNCHED;
   gameId: string;
   teamId: string;
-  timestamp: number;
 }
 
 export interface IGameStarted {
@@ -37,7 +35,6 @@ export interface IGameStarted {
   gameId: string;
   playerId: string;
   teamId: string;
-  timestamp: number;
 }
 
 export interface IGameEnded {
@@ -46,7 +43,6 @@ export interface IGameEnded {
   playerId: string;
   teamId: string;
   cleared: boolean;
-  timestamp: number;
 }
 
 export interface IGameStageEntered {
@@ -56,5 +52,4 @@ export interface IGameStageEntered {
   teamId: string;
   step: string;
   stage: string;
-  timestamp: number;
 }

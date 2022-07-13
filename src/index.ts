@@ -23,6 +23,8 @@ import {
   GameConceptEvent,
 } from "./game-concept";
 
+import { EventOfType } from "./events";
+
 export {
   LedspClient,
   Interpretation,
@@ -44,4 +46,5 @@ export {
   GAME_CONCEPT_CREATED,
   GAME_CONCEPT_DELETED,
   GAME_CONCEPT_UPDATED,
+  EventOfType,
 };
