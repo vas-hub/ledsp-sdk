@@ -9,21 +9,21 @@ export type GameConceptEvent =
 
 export interface IGameConceptCreated {
   id: string;
-  eventType: "game-concept-created";
+  eventType: typeof GAME_CONCEPT_CREATED;
   data: any;
   timestamp: number;
 }
 
 export interface IGameConceptUpdated {
   id: string;
-  eventType: "game-concept-updated";
+  eventType: typeof GAME_CONCEPT_UPDATED;
   data: any;
   timestamp: number;
 }
 
 export interface IGameConceptDeleted {
   id: string;
-  eventType: "game-concept-deleted";
+  eventType: typeof GAME_CONCEPT_DELETED;
   gameConceptId: string;
   timestamp: number;
 }
