@@ -9,6 +9,11 @@ import {
   GAME_FLOW_STEP_ENTERED,
   GAME_ENDED,
   GAME_PROGRESS_EVENT_TYPES,
+  IGamePrepared,
+  IGameLaunched,
+  IGameStarted,
+  IGameFlowStepEntered,
+  IGameEnded,
 } from "./game-progress";
 
 import {
@@ -24,6 +29,12 @@ export {
   QSDecode,
   QSEncode,
   GameProgressEvent,
+  IGamePrepared,
+  IGameLaunched,
+  IGameStarted,
+  IGameFlowStepEntered,
+  IGameEnded,
+  GAME_PROGRESS_EVENT_TYPES,
   GAME_PREPARED,
   GAME_LAUNCHED,
   GAME_STARTED,
@@ -33,5 +44,4 @@ export {
   GAME_CONCEPT_CREATED,
   GAME_CONCEPT_DELETED,
   GAME_CONCEPT_UPDATED,
-  GAME_PROGRESS_EVENT_TYPES,
 };
