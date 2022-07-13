@@ -14,14 +14,8 @@ import {
   IGameStarted,
   IGameStageEntered,
   IGameEnded,
+  GameConcept,
 } from "./game-progress";
-
-import {
-  GAME_CONCEPT_CREATED,
-  GAME_CONCEPT_DELETED,
-  GAME_CONCEPT_UPDATED,
-  GameConceptEvent,
-} from "./game-concept";
 
 import { EventOfType } from "./events";
 
@@ -42,9 +36,6 @@ export {
   GAME_STARTED,
   GAME_STAGE_ENTERED,
   GAME_ENDED,
-  GameConceptEvent,
-  GAME_CONCEPT_CREATED,
-  GAME_CONCEPT_DELETED,
-  GAME_CONCEPT_UPDATED,
   EventOfType,
+  GameConcept,
 };
