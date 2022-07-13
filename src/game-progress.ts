@@ -22,7 +22,25 @@ export type GameProgressEvent =
 export interface IGamePrepared {
   eventType: typeof GAME_PREPARED;
   gameId: string;
+  gameConcept: GameConcept;
 }
+
+export type GameConcept = {
+  id: string;
+  version: `${string}.${string}.${string}`;
+  phases: Phase[];
+  gameFlow: { id: string; phase: Phase["name"] }[];
+};
+
+export type Phase = {
+  name: string;
+  description: string;
+  stages: string[];
+  expectedDurationInSeconds: {
+    min: number;
+    max: number;
+  };
+};
 
 export interface IGameLaunched {
   eventType: typeof GAME_LAUNCHED;
