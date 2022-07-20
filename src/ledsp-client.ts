@@ -5,10 +5,11 @@ import { LEDSP_API_BASEPATH, LEDSP_API_ENDPOINT } from "./env";
 import { GameConcept, Interpretation, Observation } from "./interfaces";
 
 export default class LedspClient {
+  private static instance: LedspClient;
   ledspHttpClient: HttpClient;
   ledspEmulator: LedspEmulator;
 
-  constructor(private readonly config: LedspClientConfig) {
+  private constructor(private readonly config: LedspClientConfig) {
     if (!LEDSP_API_ENDPOINT[config.environment])
       throw new Error(
         `Unknown environment for ledsp-sdk: ${config.environment}`
@@ -78,6 +79,11 @@ export default class LedspClient {
     return this.ledspHttpClient.get(
       `game-results-storages/payloads?gamingSessionIds[]=${debriefingId}`
     );
+  }
+
+  static getInstance(config: LedspClientConfig): LedspClient {
+    if (!LedspClient.instance) LedspClient.instance = new LedspClient(config);
+    return LedspClient.instance;
   }
 }
 
