@@ -1,10 +1,12 @@
+import { GameProgressEvent } from "./game-progress";
 import { GameConcept, Interpretation } from "./interfaces";
 
 export class LedspEmulator {
-  static async findInterpretation(
-    interpretationId: string,
-    gameConcept: GameConcept
-  ): Promise<Interpretation> {
+  events: GameProgressEvent[] = [];
+
+  constructor(private readonly gameConcept: GameConcept) {}
+
+  async findInterpretation(interpretationId: string): Promise<Interpretation> {
     const playerId = (Math.random() * 10000).toString();
     return {
       interpretationId,
@@ -16,7 +18,7 @@ export class LedspEmulator {
       settings: {
         playURL: "#",
         configuration: {
-          playOptions: gameConcept.defaultPlayOptionsSet,
+          playOptions: this.gameConcept.defaultPlayOptionsSet,
           players: [
             {
               id: (Math.random() * 10000).toString(),
@@ -35,5 +37,8 @@ export class LedspEmulator {
         },
       },
     };
+  }
+  async sendGameProgressEvent(event: GameProgressEvent): Promise<void> {
+    this.events.push(event);
   }
 }
