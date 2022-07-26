@@ -16,6 +16,7 @@ import {
 } from "./game-progress";
 
 import { EventOfType } from "./events";
+import { GameFlowDebugger } from "./game-flow";
 
 export {
   LedspClient,
@@ -34,4 +35,5 @@ export {
   GAME_ENDED,
   EventOfType,
   GameConcept,
+  GameFlowDebugger,
 };

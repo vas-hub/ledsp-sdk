@@ -10,6 +10,7 @@
     "experimentalDecorators": true,
     "suppressImplicitAnyIndexErrors": true,
     "module": "commonjs",
+    "jsx": "react",
     "lib": ["ESNEXT", "DOM"],
     "target": "ES2015",
     "typeRoots": ["./node_modules/@types"],
