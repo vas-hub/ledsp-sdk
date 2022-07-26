@@ -6,10 +6,14 @@ import { GameConcept, Interpretation, Observation } from "./interfaces";
 
 export default class LedspClient {
   private static instance: LedspClient;
+  private readonly interpretationId: string;
   ledspHttpClient: HttpClient;
   ledspEmulator: LedspEmulator;
 
   private constructor(private readonly config: LedspClientConfig) {
+    if (!config.interpretationId) throw new Error("Missing interpretationId");
+    this.interpretationId = config.interpretationId;
+
     if (!LEDSP_API_ENDPOINT[config.environment])
       throw new Error(
         `Unknown environment for ledsp-sdk: ${config.environment}`
@@ -22,16 +26,18 @@ export default class LedspClient {
     this.ledspHttpClient = new HttpClient(
       LEDSP_API_ENDPOINT[config.environment].concat("/", LEDSP_API_BASEPATH)
     );
-    this.ledspEmulator = new LedspEmulator(config.gameConceptToEmulate);
+    this.ledspEmulator = new LedspEmulator(
+      config.interpretationId,
+      config.gameConceptToEmulate
+    );
   }
 
-  async findInterpretation(interpretationId: string): Promise<Interpretation> {
+  async interpretation(): Promise<Interpretation> {
     // TODO implement a specific class and transform it to a Decorator
-    if (this.config.emulate)
-      return this.ledspEmulator.findInterpretation(interpretationId);
+    if (this.config.emulate) return this.ledspEmulator.findInterpretation();
 
     return await this.ledspHttpClient.get(
-      `game-launcher/interpretations/${interpretationId}`
+      `game-launcher/interpretations/${this.interpretationId}`
     );
   }
 
@@ -88,6 +94,7 @@ export default class LedspClient {
 }
 
 type LedspClientConfig = {
+  interpretationId: string;
   environment: string;
   emulate?: boolean;
   gameConceptToEmulate?: GameConcept;
