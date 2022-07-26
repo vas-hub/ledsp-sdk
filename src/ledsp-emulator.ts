@@ -14,7 +14,7 @@ export class LedspEmulator {
       ? JSON.parse(
           localStorage.getItem(
             `games-progresses-events.${this.interpretationId}`
-          )
+          ) || "[]"
         )
       : this._events;
   }
