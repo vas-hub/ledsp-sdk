@@ -26,12 +26,11 @@ export type GameConcept = {
   id: string;
   version: `${string}.${string}.${string}`;
   phases: Phase[];
-  gameFlow: { id: string; phase: Phase["name"] }[];
+  gameFlow: { id: string; phase: Phase["name"], description: string }[];
 };
 
 export type Phase = {
   name: string;
-  description: string;
   stages: string[];
   expectedDurationInSeconds: {
     min: number;
