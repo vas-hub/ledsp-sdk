@@ -12,7 +12,9 @@ export class LedspEmulator {
   get events(): GameProgressEvent[] {
     return typeof window !== "undefined"
       ? JSON.parse(
-          localStorage.get(`games-progresses-events.${this.interpretationId}`)
+          localStorage.getItem(
+            `games-progresses-events.${this.interpretationId}`
+          )
         )
       : this._events;
   }
@@ -49,9 +51,10 @@ export class LedspEmulator {
       },
     };
   }
+
   async sendGameProgressEvent(event: GameProgressEvent): Promise<void> {
     if (typeof window !== "undefined")
-      localStorage.set(
+      localStorage.setItem(
         `games-progresses-events.${this.interpretationId}`,
         JSON.stringify(this.events.concat(event))
       );
