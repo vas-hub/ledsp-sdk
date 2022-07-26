@@ -12,18 +12,18 @@ export const GameFlowDebugger = (mountPoint: string, client: LedspClient) => {
     console.log("changing html of element: ", JSON.stringify(element));
     element.innerHTML = `
         <div
-          style={{
-            position: "fixed",
-            right: "0",
-            top: "50%",
-            height: "400px",
-            overflowY: "scroll",
-            backgroundColor: "white",
-            padding: "10px",
-            color: "black",
-            width: "300px",
-            zIndex: 1000,
-          }}
+          style="
+            position: fixed;
+            right: 0;
+            top: 50%;
+            height: 400px;
+            overflow-y: scroll;
+            background-color: white;
+            padding: 10px;
+            color: black;
+            width: 300px;
+            z-index: 1000;
+          "
         >
           Game progress events:
           <ul>
