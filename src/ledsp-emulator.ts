@@ -2,14 +2,25 @@ import { GameProgressEvent } from "./game-progress";
 import { GameConcept, Interpretation } from "./interfaces";
 
 export class LedspEmulator {
-  events: GameProgressEvent[] = [];
+  private _events: GameProgressEvent[] = [];
 
-  constructor(private readonly gameConcept: GameConcept) {}
+  constructor(
+    private readonly interpretationId: string,
+    private readonly gameConcept: GameConcept
+  ) {}
 
-  async findInterpretation(interpretationId: string): Promise<Interpretation> {
+  get events(): GameProgressEvent[] {
+    return typeof window !== "undefined"
+      ? JSON.parse(
+          localStorage.get(`games-progresses-events.${this.interpretationId}`)
+        )
+      : this._events;
+  }
+
+  async findInterpretation(): Promise<Interpretation> {
     const playerId = (Math.random() * 10000).toString();
     return {
-      interpretationId,
+      interpretationId: this.interpretationId,
       userId: (Math.random() * 10000).toString(),
       gameId: "String",
       playerId,
@@ -39,6 +50,11 @@ export class LedspEmulator {
     };
   }
   async sendGameProgressEvent(event: GameProgressEvent): Promise<void> {
-    this.events.push(event);
+    if (typeof window !== "undefined")
+      localStorage.set(
+        `games-progresses-events.${this.interpretationId}`,
+        JSON.stringify(this.events.concat(event))
+      );
+    else this._events.push(event);
   }
 }
