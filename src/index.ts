@@ -16,7 +16,7 @@ import {
 } from "./game-progress";
 
 import { EventOfType } from "./events";
-import { GameFlowDebugger } from "./game-flow";
+import { GameFlowDebugger } from "./game-flow-debugger";
 
 export {
   LedspClient,
