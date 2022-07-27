@@ -3,3 +3,4 @@ dist
 .npmrc
 .yarnrc
 yarn-error.log
+.nyc_output

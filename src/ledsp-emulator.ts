@@ -1,21 +1,29 @@
 import { GameProgressEvent } from "./game-progress";
 import { GameConcept, Interpretation } from "./interfaces";
+import ValidateGameFlow from "./validate-game-flow";
 
 export class LedspEmulator {
   private _events: GameProgressEvent[] = [];
+  private expectedEvents: { step: string; stage: string }[] = [];
 
   constructor(
     private readonly interpretationId: string,
     private readonly gameConcept: GameConcept
-  ) {}
+  ) {
+    this.expectedEvents = gameConcept.gameFlow.reduce((acc, step) => {
+      const phase = gameConcept.phases.find((p) => p.name == step.phase);
+      for (const stage of phase.stages) acc.push({ step: step.id, stage });
+      return acc;
+    }, [] as { step: string; stage: string }[]);
+  }
+
+  private get storageKey() {
+    return `games-progresses-events.${this.interpretationId}`;
+  }
 
   get events(): GameProgressEvent[] {
     return typeof window !== "undefined"
-      ? JSON.parse(
-          localStorage.getItem(
-            `games-progresses-events.${this.interpretationId}`
-          ) || "[]"
-        )
+      ? JSON.parse(localStorage.getItem(this.storageKey) || "[]")
       : this._events;
   }
 
@@ -53,9 +61,17 @@ export class LedspEmulator {
   }
 
   async sendGameProgressEvent(event: GameProgressEvent): Promise<void> {
+    ValidateGameFlow(
+      this.gameConcept,
+      this.events,
+      this.expectedEvents,
+      event,
+      console.error
+    );
+
     if (typeof window !== "undefined")
       localStorage.setItem(
-        `games-progresses-events.${this.interpretationId}`,
+        this.storageKey,
         JSON.stringify(this.events.concat(event))
       );
     else this._events.push(event);

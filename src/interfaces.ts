@@ -21,6 +21,8 @@ export interface Player {
 
 export interface GameConcept {
   defaultPlayOptionsSet: unknown;
+  gameFlow: { id: string; phase: string }[];
+  phases: { name: string; stages: string[] }[];
 }
 
 export interface Observation {}
