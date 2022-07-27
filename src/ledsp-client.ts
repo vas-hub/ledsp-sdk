@@ -3,6 +3,7 @@ import { LedspEmulator } from "./ledsp-emulator";
 import { GameProgressEvent, GAME_PROGRESS_EVENT_TYPES } from "./game-progress";
 import { LEDSP_API_BASEPATH, LEDSP_API_ENDPOINT } from "./env";
 import { GameConcept, Interpretation, Observation } from "./interfaces";
+import { GameFlowDebugger } from "./game-flow-debugger";
 
 export default class LedspClient {
   private static instance: LedspClient;
@@ -30,6 +31,7 @@ export default class LedspClient {
       config.interpretationId,
       config.gameConceptToEmulate
     );
+    if (config.emulate) GameFlowDebugger(config.gameEventsMountPointId, this);
   }
 
   async interpretation(): Promise<Interpretation> {
@@ -98,4 +100,5 @@ type LedspClientConfig = {
   environment: string;
   emulate?: boolean;
   gameConceptToEmulate?: GameConcept;
+  gameEventsMountPointId?: string;
 };
