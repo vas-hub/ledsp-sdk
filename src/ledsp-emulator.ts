@@ -1,4 +1,4 @@
-import { GamePlayInfo } from "game-play-info";
+import { GamePlayInfo } from "@vas/ledsp-shared";
 import { GameProgressEvent } from "./game-progress";
 import { GameConcept } from "./interfaces";
 import ValidateGameFlow from "./validate-game-flow";
