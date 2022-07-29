@@ -1,5 +1,4 @@
 import LedspClient from "./ledsp-client";
-import { Interpretation } from "./interfaces";
 import { QSDecode, QSEncode } from "./ledsp-encoding";
 import {
   GameProgressEvent,
@@ -20,7 +19,6 @@ import { GameFlowDebugger } from "./game-flow-debugger";
 
 export {
   LedspClient,
-  Interpretation,
   QSDecode,
   QSEncode,
   GameProgressEvent,

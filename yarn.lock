@@ -514,6 +514,11 @@
   resolved "https://registry.npmjs.org/@types/yoga-layout/-/yoga-layout-1.9.2.tgz#efaf9e991a7390dc081a0b679185979a83a9639a"
   integrity sha512-S9q47ByT2pPvD65IvrWp7qppVMpk9WGMbVq9wbWZOHg6tnXSD4vyhao6nOSBwwfDdV2p3Kx9evA9vI+XWTfDvw==
 
+"@vas/ledsp-shared@^0.0.2":
+  version "0.0.2"
+  resolved "http://verdaccio.vas.it/@vas%2fledsp-shared/-/ledsp-shared-0.0.2.tgz#f62a30f5326022d3a74b4de59aee7e95c54ba255"
+  integrity sha512-1vOJp255oxP6YaIeyPpXhy+R5q+s29eNfllHwRKOGd1lKdTNqf4y0BbOzg9JTulf9jhFNhcaOV4p7bwcVYTY7A==
+
 acorn-walk@^8.1.1:
   version "8.2.0"
   resolved "https://registry.npmjs.org/acorn-walk/-/acorn-walk-8.2.0.tgz#741210f2e2426454508853a2f44d0ab83b7f69c1"

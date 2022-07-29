@@ -11,7 +11,9 @@
   "engines": {
     "node": ">=16"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@vas/ledsp-shared": "^0.0.2"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "dev": "tsc -p tsconfig.json --watch",
