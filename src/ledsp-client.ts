@@ -2,18 +2,19 @@ import HttpClient from "./http-client";
 import { LedspEmulator } from "./ledsp-emulator";
 import { GameProgressEvent, GAME_PROGRESS_EVENT_TYPES } from "./game-progress";
 import { LEDSP_API_BASEPATH, LEDSP_API_ENDPOINT } from "./env";
-import { GameConcept, Interpretation, Observation } from "./interfaces";
+import { GameConcept, Observation } from "./interfaces";
 import { GameFlowDebugger } from "./game-flow-debugger";
+import { GamePlayInfo } from "./game-play-info";
 
 export default class LedspClient {
   private static instance: LedspClient;
-  private readonly interpretationId: string;
+  private readonly gamePlayInfoId: string;
   ledspHttpClient: HttpClient;
   ledspEmulator: LedspEmulator;
 
   private constructor(private readonly config: LedspClientConfig) {
-    if (!config.interpretationId) throw new Error("Missing interpretationId");
-    this.interpretationId = config.interpretationId;
+    if (!config.gamePlayInfoId) throw new Error("Missing gamePlayInfoId");
+    this.gamePlayInfoId = config.gamePlayInfoId;
 
     if (!LEDSP_API_ENDPOINT[config.environment])
       throw new Error(
@@ -28,18 +29,17 @@ export default class LedspClient {
       LEDSP_API_ENDPOINT[config.environment].concat("/", LEDSP_API_BASEPATH)
     );
     this.ledspEmulator = new LedspEmulator(
-      config.interpretationId,
+      config.gamePlayInfoId,
       config.gameConceptToEmulate
     );
     if (config.emulate) GameFlowDebugger(config.gameEventsMountPointId, this);
   }
 
-  async interpretation(): Promise<Interpretation> {
-    // TODO implement a specific class and transform it to a Decorator
-    if (this.config.emulate) return this.ledspEmulator.findInterpretation();
+  async gamePlayInfo(opts: Partial<GamePlayInfo> = {}): Promise<GamePlayInfo> {
+    if (this.config.emulate) return this.ledspEmulator.gamePlayInfo(opts);
 
     return await this.ledspHttpClient.get(
-      `game-launcher/interpretations/${this.interpretationId}`
+      `game-launcher/game-play-info/${this.gamePlayInfoId}`
     );
   }
 
@@ -61,7 +61,6 @@ export default class LedspClient {
       timestamp: Date.now(),
     };
 
-    // TODO implement a specific class and transform it to a Decorator
     if (this.config.emulate)
       return this.ledspEmulator.sendGameProgressEvent(eventToSend);
 
@@ -96,7 +95,7 @@ export default class LedspClient {
 }
 
 type LedspClientConfig = {
-  interpretationId: string;
+  gamePlayInfoId: string;
   environment: string;
   emulate?: boolean;
   gameConceptToEmulate?: GameConcept;
