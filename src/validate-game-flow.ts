@@ -39,6 +39,11 @@ export default function ValidateGameFlow(
       ).length;
 
       const expectedEvent = expectedEvents[expectedEventIndex];
+      if (!expectedEvent)
+        throw new GameFlowValidationError(
+          `Events out of order: no more events expected, got ${eventToEmit.step}/${eventToEmit.stage}`
+        );
+
       if (
         expectedEvent.step !== eventToEmit.step ||
         expectedEvent.stage !== eventToEmit.stage

@@ -130,6 +130,51 @@ tap.test("validate game flow", async (outerTest) => {
     innerTest.end();
   });
 
+  outerTest.test("should not expect other events", async (innerTest) => {
+    validateGameFlow(
+      innerTest.context.gameConcept,
+      [
+        { gameId: "", playerId: "", teamId: "", eventType: GAME_STARTED },
+        {
+          gameId: "",
+          playerId: "",
+          teamId: "",
+          eventType: GAME_STAGE_ENTERED,
+          step: "step1",
+          stage: "stage1",
+        },
+        {
+          gameId: "",
+          playerId: "",
+          teamId: "",
+          eventType: GAME_STAGE_ENTERED,
+          step: "step2",
+          stage: "stage1",
+        },
+      ],
+      [
+        { step: "step1", stage: "stage1" },
+        { step: "step2", stage: "stage1" },
+      ],
+      {
+        gameId: "",
+        playerId: "",
+        teamId: "",
+        step: "step2",
+        stage: "stage2",
+        eventType: GAME_STAGE_ENTERED,
+      },
+      (message) => {
+        innerTest.match(
+          message,
+          "Events out of order: no more events expected, got step2/stage2"
+        );
+      }
+    );
+
+    innerTest.end();
+  });
+
   outerTest.test(
     "should not allow duplicated GAME_ENDED event",
     async (innerTest) => {
