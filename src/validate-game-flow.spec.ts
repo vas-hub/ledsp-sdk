@@ -82,7 +82,7 @@ tap.test("validate game flow", async (outerTest) => {
         eventType: GAME_STAGE_ENTERED,
       },
       (message) => {
-        innerTest.equal(
+        innerTest.match(
           message,
           "Events out of order: expected step1/stage1, got step2/stage1"
         );
@@ -120,7 +120,7 @@ tap.test("validate game flow", async (outerTest) => {
         eventType: GAME_STAGE_ENTERED,
       },
       (message) => {
-        innerTest.equal(
+        innerTest.match(
           message,
           "Events out of order: expected step1/stage2, got step2/stage1"
         );
@@ -166,7 +166,7 @@ tap.test("validate game flow", async (outerTest) => {
           cleared: false,
         },
         (message) => {
-          innerTest.equal(message, "Duplicated GAME_ENDED event");
+          innerTest.match(message, "Duplicated GAME_ENDED event");
         }
       );
 
