@@ -466,6 +466,11 @@
   resolved "https://registry.npmjs.org/@types/node/-/node-17.0.35.tgz#635b7586086d51fb40de0a2ec9d1014a5283ba4a"
   integrity sha512-vu1SrqBjbbZ3J6vwY17jBs8Sr/BKA+/a/WtjRG+whKg1iuLFOosq872EXS0eXWILdO36DHQQeku/ZcL6hz2fpg==
 
+"@types/node@^18.6.3":
+  version "18.6.3"
+  resolved "https://registry.npmjs.org/@types/node/-/node-18.6.3.tgz#4e4a95b6fe44014563ceb514b2598b3e623d1c98"
+  integrity sha512-6qKpDtoaYLM+5+AFChLhHermMQxc3TOEFIDzrZLPRGHPrLEwqFkkT5Kx3ju05g6X7uDPazz3jHbKPX0KzCjntg==
+
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/@types/normalize-package-data/-/normalize-package-data-2.4.1.tgz#d3357479a0fdfdd5907fe67e17e0a85c906e1301"
@@ -513,11 +518,6 @@
   version "1.9.2"
   resolved "https://registry.npmjs.org/@types/yoga-layout/-/yoga-layout-1.9.2.tgz#efaf9e991a7390dc081a0b679185979a83a9639a"
   integrity sha512-S9q47ByT2pPvD65IvrWp7qppVMpk9WGMbVq9wbWZOHg6tnXSD4vyhao6nOSBwwfDdV2p3Kx9evA9vI+XWTfDvw==
-
-"@vas/ledsp-shared@^0.0.2":
-  version "0.0.2"
-  resolved "http://verdaccio.vas.it/@vas%2fledsp-shared/-/ledsp-shared-0.0.2.tgz#f62a30f5326022d3a74b4de59aee7e95c54ba255"
-  integrity sha512-1vOJp255oxP6YaIeyPpXhy+R5q+s29eNfllHwRKOGd1lKdTNqf4y0BbOzg9JTulf9jhFNhcaOV4p7bwcVYTY7A==
 
 acorn-walk@^8.1.1:
   version "8.2.0"

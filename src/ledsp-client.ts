@@ -1,5 +1,5 @@
 import HttpClient from "./http-client";
-import { GamePlayInfo } from "@vas/ledsp-shared";
+import { GamePlayInfo } from "./game-play-info";
 import { LedspEmulator } from "./ledsp-emulator";
 import { GameProgressEvent, GAME_PROGRESS_EVENT_TYPES } from "./game-progress";
 import { LEDSP_API_BASEPATH, LEDSP_API_ENDPOINT } from "./env";
