@@ -4,10 +4,12 @@ import LedspClient from "./ledsp-client";
 export const GameFlowDebugger = (mountPoint: string, client: LedspClient) => {
   setInterval(() => {
     const element = document.getElementById(mountPoint);
+
     if (!element) {
       console.error(`GameFlowDebugger: mount point ${mountPoint} not found`);
       return;
     }
+
     element.innerHTML = `
         <div
           style="
