@@ -53,21 +53,19 @@ export class LedspEmulator {
   }
 }
 
-const randomId = () => (Math.random() * 10000).toString();
-
 const defaultGamePlayInfo = (
   id: string,
   gameConcept: GameConcept
 ): GamePlayInfo => ({
   id,
   user: {
-    id: randomId(),
+    id: "USER_DEMO",
     displayName: "Emulated user",
   },
-  gameId: randomId(),
-  playerId: randomId(),
+  gameId: id,
+  playerId: "P1_DEMO",
   team: {
-    id: randomId(),
+    id: "T_DEMO",
     name: "Emulated team",
   },
   role: "Emulated role",
@@ -77,12 +75,12 @@ const defaultGamePlayInfo = (
       playOptions: gameConcept.defaultPlayOptionsSet,
       players: [
         {
-          id: randomId(),
+          id: "P1_DEMO",
           color: "red",
           displayName: "Player 1",
         },
         {
-          id: randomId(),
+          id: "P2_DEMO",
           color: "blue",
           displayName: "Player 2",
         },
