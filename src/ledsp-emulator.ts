@@ -58,6 +58,7 @@ const defaultGamePlayInfo = (
   gameConcept: GameConcept
 ): GamePlayInfo => ({
   id,
+  sessionId: "DEMO_SESSION",
   user: {
     id: "USER_DEMO",
     displayName: "Emulated user",

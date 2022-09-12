@@ -1,5 +1,6 @@
 export type GamePlayInfo = {
   readonly id: string;
+  readonly sessionId: string;
   readonly user: {
     id: string;
     displayName: string;
