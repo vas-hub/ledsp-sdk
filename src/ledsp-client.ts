@@ -18,12 +18,11 @@ export default class LedspClient {
 
     if (!LEDSP_API_ENDPOINT[config.environment])
       throw new Error(
-        `Unknown environment for ledsp-sdk: ${config.environment}`
+        `Unknown environment for ledsp-sdk: ${config.environment}.`
       );
 
     if (config.emulate && !config.gameConceptToEmulate)
-      throw new Error(`
-      You must provide a game concept to emulate.`);
+      throw new Error("You must provide a game concept to emulate.");
 
     this.ledspHttpClient = new HttpClient(
       LEDSP_API_ENDPOINT[config.environment].concat("/", LEDSP_API_BASEPATH)
@@ -32,7 +31,9 @@ export default class LedspClient {
       config.gamePlayInfoId,
       config.gameConceptToEmulate
     );
-    if (config.emulate) GameFlowDebugger(config.gameEventsMountPointId, this);
+
+    if (config.emulate && config.gameEventsMountPointId)
+      GameFlowDebugger(config.gameEventsMountPointId, this);
   }
 
   async gamePlayInfo(opts: Partial<GamePlayInfo> = {}): Promise<GamePlayInfo> {
