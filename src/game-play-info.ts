@@ -22,8 +22,10 @@ export type GamePlaySettings = {
   readonly configuration: GameConfiguration;
 };
 
+export type PlayOption = string | number | string[] | number[];
+
 export type GameConfiguration = {
-  readonly playOptions: Record<string, string | number>;
+  readonly playOptions: Record<string, PlayOption>;
   readonly players: PlayerInfo[];
   readonly returnPath: string;
   readonly gameResultsRegistryEndpoint: string;

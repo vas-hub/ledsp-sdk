@@ -1,5 +1,7 @@
+import { PlayOption } from './game-play-info';
+
 export interface GameConcept {
-  defaultPlayOptionsSet: { [key: string]: string | number };
+  defaultPlayOptionsSet: { [key: string]: PlayOption };
   gameFlow: { id: string; phase: string }[];
   phases: { name: string; stages: string[] }[];
 }
