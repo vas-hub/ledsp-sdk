@@ -1,5 +1,10 @@
 import LedspClient from "./ledsp-client";
-import { QSDecode, QSEncode } from "./ledsp-encoding";
+import {
+  QSDecode,
+  QSEncode,
+  DebriefParamsDecode,
+  DebriefParamsEncode,
+} from "./ledsp-encoding";
 import {
   GameProgressEvent,
   GAME_LAUNCHED,
@@ -16,11 +21,14 @@ import {
 
 import { EventOfType } from "./events";
 import { GameFlowDebugger } from "./game-flow-debugger";
+import useLedspParams from "./useLedspParams.hook";
 
 export {
   LedspClient,
   QSDecode,
   QSEncode,
+  DebriefParamsDecode,
+  DebriefParamsEncode,
   GameProgressEvent,
   IGameLaunched,
   IGameStarted,
@@ -34,4 +42,5 @@ export {
   EventOfType,
   GameConcept,
   GameFlowDebugger,
+  useLedspParams,
 };
