@@ -12,6 +12,7 @@
     "node": ">=16"
   },
   "dependencies": {
+    "buffer": "^6.0.3",
     "query-string": "^7.1.1"
   },
   "scripts": {
